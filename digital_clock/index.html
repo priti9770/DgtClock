@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Digitle_Clock</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            #ClockDisplay{
+
+                width: 400px;
+                height: 100px;
+                background-color: rgb(68, 189, 148);
+                border-radius: 12px;
+                padding-top: 25px;
+                margin: 12px;
+                box-sizing: border-box;
+                box-shadow: 12px 12px 2px 1px rgba(8, 3, 3, 0.2);;
+            }
+        </style>
+    </head>
+    <body>
+        <center><h1>Digitle Clock</h1></center>
+        <hr>
+        
+        <center><div id="ClockDisplay" style="font-size: 35px;"></div></center>
+  
+  
+        <script >
+
+             function MyClock(){
+                var date=new Date();
+                var h =date.getHours();
+                var m =date.getMinutes();
+                var s =date.getSeconds();
+                var session ="AM";
+                
+                if(h==0){
+                    h=12;
+                }
+                if(h>12){
+                    h=h-12
+                    session="PM";
+                }
+
+                h=(h<10)?"0"+h:h;
+                m=(m<10)?"0"+m:m;
+                s=(s<10)?"0"+s:s;
+                document.getElementById("ClockDisplay").innerHTML= h+":" +m+ ":" +s;
+             
+                setTimeout(MyClock,1000)
+            } 
+
+             MyClock();
+            
+
+        </script>
+    </body>
+</html>
